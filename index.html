@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Finance Tools - Free Online Calculators</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .calculator-card:hover { transform: translateY(-2px); }
+        .result-highlight { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-blue-600">💰 Smart Finance Tools</div>
+                </div>
+                <button onclick="showPage('home')" class="text-gray-600 hover:text-blue-600 font-medium">Home</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Homepage -->
+    <div id="home-page" class="page">
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+            <div class="max-w-4xl mx-auto text-center px-4">
+                <h1 class="text-5xl font-bold text-gray-900 mb-6">Your Pocket Financial Toolkit</h1>
+                <p class="text-xl text-gray-600 mb-8">10 powerful calculators to plan, save, and grow your money</p>
+                <button onclick="document.getElementById('calculators').scrollIntoView({behavior: 'smooth'})" 
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+                    Explore Calculators
+                </button>
+            </div>
+        </div>
+
+        <!-- Calculator Grid -->
+        <div id="calculators" class="max-w-7xl mx-auto py-16 px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Choose Your Calculator</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- SIP Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('sip')">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">SIP Calculator</h3>
+                    <p class="text-gray-600 mb-4">See what your monthly investments grow into</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+
+                <!-- FIRE Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('fire')">
+                    <div class="text-4xl mb-4">🔥</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">FIRE Number Calculator</h3>
+                    <p class="text-gray-600 mb-4">Calculate your Financial Independence target</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+
+                <!-- Loan Interest Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('loan')">
+                    <div class="text-4xl mb-4">🏦</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Loan Interest Calculator</h3>
+                    <p class="text-gray-600 mb-4">Calculate simple and compound interest</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+
+                <!-- EMI Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('emi')">
+                    <div class="text-4xl mb-4">🏠</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">EMI Calculator</h3>
+                    <p class="text-gray-600 mb-4">Calculate your monthly loan payments</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+
+                <!-- Interest Rate Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('rate')">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Interest Rate Calculator</h3>
+                    <p class="text-gray-600 mb-4">Find the rate of return on investments</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+
+                <!-- Investment Tenure Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('tenure')">
+                    <div class="text-4xl mb-4">📅</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Investment Tenure Calculator</h3>
+                    <p class="text-gray-600 mb-4">Calculate investment duration in years</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+
+                <!-- CAGR Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('cagr')">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">CAGR Calculator</h3>
+                    <p class="text-gray-600 mb-4">Calculate compound annual growth rate</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+
+                <!-- Inflation Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('inflation')">
+                    <div class="text-4xl mb-4">💸</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Inflation Calculator</h3>
+                    <p class="text-gray-600 mb-4">See how inflation affects your money</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+
+                <!-- Retirement Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('retirement')">
+                    <div class="text-4xl mb-4">🏖️</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Retirement Corpus Calculator</h3>
+                    <p class="text-gray-600 mb-4">Calculate how much you need to retire</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+
+                <!-- Net Worth Calculator -->
+                <div class="calculator-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all cursor-pointer" onclick="showCalculator('networth')">
+                    <div class="text-4xl mb-4">💎</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Net Worth Calculator</h3>
+                    <p class="text-gray-600 mb-4">Calculate your total net worth</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium">Open Calculator</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="bg-white py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Use Our Tools?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🚀</div>
+                        <h3 class="text-xl font-semibold mb-2">Instant Results</h3>
+                        <p class="text-gray-600">Get calculations immediately without waiting</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🔒</div>
+                        <h3 class="text-xl font-semibold mb-2">No Logins Required</h3>
+                        <p class="text-gray-600">Use all tools without creating accounts</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">💡</div>
+                        <h3 class="text-xl font-semibold mb-2">Understand Your Money</h3>
+                        <p class="text-gray-600">Learn with clear explanations and formulas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIP Calculator -->
+    <div id="sip-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">📈 SIP Calculator</h1>
+                <p class="text-gray-600 mb-8">Calculate the future value of your systematic investment plan</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">📥 Input Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Investment (₹)</label>
+                                <input type="number" id="sip-amount" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="5000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Expected Annual Return (%)</label>
+                                <input type="number" id="sip-rate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="12" step="0.1">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Investment Period (Years)</label>
+                                <input type="number" id="sip-years" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="10">
+                            </div>
+                            <button onclick="calculateSIP()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">🎯 Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="sip-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">Future Value</div>
+                                <div class="text-3xl font-bold" id="sip-future-value">₹0</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Total Investment:</span>
+                                    <span class="font-semibold" id="sip-total-investment">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Returns:</span>
+                                    <span class="font-semibold text-green-600" id="sip-total-returns">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">SIP uses the power of compounding. Your monthly investments grow at the expected return rate, and returns are reinvested to generate more returns.</p>
+                            <details class="text-sm">
+                                <summary class="cursor-pointer text-blue-600 font-medium">Formula Used</summary>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <code>FV = P × [((1 + r)^n - 1) / r] × (1 + r)</code><br>
+                                    Where: P = Monthly investment, r = Monthly return rate, n = Number of months
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-2">❓ Common Questions</h4>
+                    <details class="mb-2">
+                        <summary class="cursor-pointer">What is a good SIP amount to start with?</summary>
+                        <p class="mt-2 text-sm text-gray-600">Start with an amount you can comfortably invest every month. Even ₹1000 per month can grow significantly over time.</p>
+                    </details>
+                    <details class="mb-2">
+                        <summary class="cursor-pointer">What return rate should I expect?</summary>
+                        <p class="mt-2 text-sm text-gray-600">Equity mutual funds have historically given 10-15% annual returns over long periods, but past performance doesn't guarantee future results.</p>
+                    </details>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIRE Calculator -->
+    <div id="fire-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">🔥 FIRE Number Calculator</h1>
+                <p class="text-gray-600 mb-8">Calculate how much you need to achieve Financial Independence, Retire Early</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">📥 Input Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Expenses (₹)</label>
+                                <input type="number" id="fire-expenses" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="50000">
+                            </div>
+                            <button onclick="calculateFIRE()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">🎯 Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="fire-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">FIRE Number</div>
+                                <div class="text-3xl font-bold" id="fire-number">₹0</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Annual Expenses:</span>
+                                    <span class="font-semibold" id="fire-annual">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Safe Withdrawal Rate:</span>
+                                    <span class="font-semibold">4%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">The FIRE rule uses the 4% withdrawal rate. You need 25 times your annual expenses to safely withdraw 4% annually without depleting your corpus.</p>
+                            <details class="text-sm">
+                                <summary class="cursor-pointer text-blue-600 font-medium">Formula Used</summary>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <code>FIRE Number = Annual Expenses × 25</code><br>
+                                    Based on the 4% safe withdrawal rate rule
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-2">❓ Common Questions</h4>
+                    <details class="mb-2">
+                        <summary class="cursor-pointer">What is the 4% rule?</summary>
+                        <p class="mt-2 text-sm text-gray-600">The 4% rule suggests you can safely withdraw 4% of your investment portfolio annually in retirement without running out of money.</p>
+                    </details>
+                    <details class="mb-2">
+                        <summary class="cursor-pointer">Is FIRE realistic in India?</summary>
+                        <p class="mt-2 text-sm text-gray-600">FIRE is achievable with disciplined saving and investing. Consider inflation, healthcare costs, and lifestyle changes when planning.</p>
+                    </details>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loan Interest Calculator -->
+    <div id="loan-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">🏦 Loan Interest Calculator</h1>
+                <p class="text-gray-600 mb-8">Calculate simple and compound interest on loans and investments</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">📥 Input Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Principal Amount (₹)</label>
+                                <input type="number" id="loan-principal" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="100000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Interest Rate (% per annum)</label>
+                                <input type="number" id="loan-rate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="10" step="0.1">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Time Period (Years)</label>
+                                <input type="number" id="loan-time" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="5">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Interest Type</label>
+                                <select id="loan-type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="simple">Simple Interest</option>
+                                    <option value="compound">Compound Interest</option>
+                                </select>
+                            </div>
+                            <button onclick="calculateLoan()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">🎯 Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="loan-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">Total Amount</div>
+                                <div class="text-3xl font-bold" id="loan-total-amount">₹0</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Principal:</span>
+                                    <span class="font-semibold" id="loan-principal-display">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Interest:</span>
+                                    <span class="font-semibold text-red-600" id="loan-interest-amount">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">Simple interest is calculated on the principal amount only. Compound interest is calculated on principal plus accumulated interest.</p>
+                            <details class="text-sm">
+                                <summary class="cursor-pointer text-blue-600 font-medium">Formulas Used</summary>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <strong>Simple Interest:</strong> A = P(1 + rt)<br>
+                                    <strong>Compound Interest:</strong> A = P(1 + r)^t<br>
+                                    Where: P = Principal, r = Rate, t = Time
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EMI Calculator -->
+    <div id="emi-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">🏠 EMI Calculator</h1>
+                <p class="text-gray-600 mb-8">Calculate your Equated Monthly Installment for loans</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">📥 Input Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Loan Amount (₹)</label>
+                                <input type="number" id="emi-principal" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="1000000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Interest Rate (% per annum)</label>
+                                <input type="number" id="emi-rate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="8.5" step="0.1">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Loan Tenure (Years)</label>
+                                <input type="number" id="emi-years" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="20">
+                            </div>
+                            <button onclick="calculateEMI()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">🎯 Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="emi-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">Monthly EMI</div>
+                                <div class="text-3xl font-bold" id="emi-amount">₹0</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Principal Amount:</span>
+                                    <span class="font-semibold" id="emi-principal-display">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Interest:</span>
+                                    <span class="font-semibold text-red-600" id="emi-total-interest">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Amount:</span>
+                                    <span class="font-semibold" id="emi-total-amount">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">EMI is calculated using the reducing balance method where you pay both principal and interest each month.</p>
+                            <details class="text-sm">
+                                <summary class="cursor-pointer text-blue-600 font-medium">Formula Used</summary>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <code>EMI = P × r × (1 + r)^n / ((1 + r)^n - 1)</code><br>
+                                    Where: P = Principal, r = Monthly interest rate, n = Number of months
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interest Rate Calculator -->
+    <div id="rate-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">📊 Interest Rate Calculator</h1>
+                <p class="text-gray-600 mb-8">Find the rate of return on your investments</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">📥 Input Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Initial Amount (₹)</label>
+                                <input type="number" id="rate-principal" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="100000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Final Amount (₹)</label>
+                                <input type="number" id="rate-final" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="150000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Time Period (Years)</label>
+                                <input type="number" id="rate-time" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="5">
+                            </div>
+                            <button onclick="calculateRate()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">🎯 Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="rate-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">Annual Interest Rate</div>
+                                <div class="text-3xl font-bold" id="rate-percentage">0%</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Initial Investment:</span>
+                                    <span class="font-semibold" id="rate-initial-display">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Final Value:</span>
+                                    <span class="font-semibold" id="rate-final-display">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Gain:</span>
+                                    <span class="font-semibold text-green-600" id="rate-gain">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">This calculates the compound annual growth rate (CAGR) of your investment based on initial and final values.</p>
+                            <details class="text-sm">
+                                <summary class="cursor-pointer text-blue-600 font-medium">Formula Used</summary>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <code>Rate = ((Final/Initial)^(1/Years) - 1) × 100</code><br>
+                                    This gives you the compound annual growth rate
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Investment Tenure Calculator -->
+    <div id="tenure-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">📅 Investment Tenure Calculator</h1>
+                <p class="text-gray-600 mb-8">Calculate the duration of your investment in years</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">📥 Input Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
+                                <input type="date" id="tenure-start" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">End Date</label>
+                                <input type="date" id="tenure-end" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <button onclick="calculateTenure()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">🎯 Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="tenure-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">Investment Duration</div>
+                                <div class="text-3xl font-bold" id="tenure-years">0 Years</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Total Days:</span>
+                                    <span class="font-semibold" id="tenure-days">0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Months:</span>
+                                    <span class="font-semibold" id="tenure-months">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">This calculator finds the exact duration between two dates, useful for calculating investment holding periods.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CAGR Calculator -->
+    <div id="cagr-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">📈 CAGR Calculator</h1>
+                <p class="text-gray-600 mb-8">Calculate the Compound Annual Growth Rate of your investments</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">📥 Input Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Beginning Value (₹)</label>
+                                <input type="number" id="cagr-beginning" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="100000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Ending Value (₹)</label>
+                                <input type="number" id="cagr-ending" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="200000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Number of Years</label>
+                                <input type="number" id="cagr-years" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="5" step="0.1">
+                            </div>
+                            <button onclick="calculateCAGR()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">🎯 Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="cagr-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">CAGR</div>
+                                <div class="text-3xl font-bold" id="cagr-percentage">0%</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Beginning Value:</span>
+                                    <span class="font-semibold" id="cagr-begin-display">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Ending Value:</span>
+                                    <span class="font-semibold" id="cagr-end-display">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Return:</span>
+                                    <span class="font-semibold text-green-600" id="cagr-total-return">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">CAGR shows the annual growth rate of an investment over a specified period, assuming profits are reinvested.</p>
+                            <details class="text-sm">
+                                <summary class="cursor-pointer text-blue-600 font-medium">Formula Used</summary>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <code>CAGR = (Ending Value / Beginning Value)^(1/n) - 1</code><br>
+                                    Where n = number of years
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inflation Calculator -->
+    <div id="inflation-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">💸 Inflation Calculator</h1>
+                <p class="text-gray-600 mb-8">See how inflation affects the purchasing power of your money</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">📥 Input Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Present Value (₹)</label>
+                                <input type="number" id="inflation-present" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="100000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Inflation Rate (% per annum)</label>
+                                <input type="number" id="inflation-rate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="6" step="0.1">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Number of Years</label>
+                                <input type="number" id="inflation-years" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="10">
+                            </div>
+                            <button onclick="calculateInflation()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">🎯 Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="inflation-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">Future Value</div>
+                                <div class="text-3xl font-bold" id="inflation-future">₹0</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Present Value:</span>
+                                    <span class="font-semibold" id="inflation-present-display">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Purchasing Power Lost:</span>
+                                    <span class="font-semibold text-red-600" id="inflation-loss">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">Inflation reduces the purchasing power of money over time. What costs ₹100 today will cost more in the future.</p>
+                            <details class="text-sm">
+                                <summary class="cursor-pointer text-blue-600 font-medium">Formula Used</summary>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <code>Future Value = Present Value × (1 + inflation rate)^years</code><br>
+                                    This shows what you'll need to buy the same goods in the future
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Retirement Calculator -->
+    <div id="retirement-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">🏖️ Retirement Corpus Calculator</h1>
+                <p class="text-gray-600 mb-8">Calculate how much you need to save for a comfortable retirement</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">📥 Input Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Annual Expenses in Retirement (₹)</label>
+                                <input type="number" id="retirement-expenses" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="600000">
+                            </div>
+                            <button onclick="calculateRetirement()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">🎯 Calculate</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="retirement-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">Retirement Corpus Needed</div>
+                                <div class="text-3xl font-bold" id="retirement-corpus">₹0</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Annual Expenses:</span>
+                                    <span class="font-semibold" id="retirement-annual-display">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Safe Withdrawal Rate:</span>
+                                    <span class="font-semibold">4%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">Based on the 4% rule, you need 25 times your annual expenses to retire comfortably without depleting your savings.</p>
+                            <details class="text-sm">
+                                <summary class="cursor-pointer text-blue-600 font-medium">Formula Used</summary>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <code>Retirement Corpus = Annual Expenses ÷ 0.04</code><br>
+                                    Or: Annual Expenses × 25
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Net Worth Calculator -->
+    <div id="networth-calculator" class="page hidden">
+        <div class="max-w-4xl mx-auto py-12 px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">💎 Net Worth Calculator</h1>
+                <p class="text-gray-600 mb-8">Calculate your total net worth by listing all assets and liabilities</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-green-600">📈 Assets</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Cash & Bank Balance (₹)</label>
+                                <input type="number" id="cash" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="0">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Investments (₹)</label>
+                                <input type="number" id="investments" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="0">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Real Estate (₹)</label>
+                                <input type="number" id="realestate" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="0">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Vehicle (₹)</label>
+                                <input type="number" id="vehicle" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="0">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Other Assets (₹)</label>
+                                <input type="number" id="other-assets" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="0">
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-lg font-semibold mb-4 mt-6 text-red-600">📉 Liabilities</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Home Loan (₹)</label>
+                                <input type="number" id="home-loan" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="0">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Car Loan (₹)</label>
+                                <input type="number" id="car-loan" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="0">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Credit Card Debt (₹)</label>
+                                <input type="number" id="credit-debt" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="0">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Other Loans (₹)</label>
+                                <input type="number" id="other-loans" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="0">
+                            </div>
+                        </div>
+                        
+                        <button onclick="calculateNetWorth()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors mt-6">🎯 Calculate</button>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">💡 Results</h3>
+                        <div id="networth-result" class="hidden">
+                            <div class="result-highlight text-white p-6 rounded-lg mb-4">
+                                <div class="text-sm opacity-90">Your Net Worth</div>
+                                <div class="text-3xl font-bold" id="networth-value">₹0</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Total Assets:</span>
+                                    <span class="font-semibold text-green-600" id="total-assets">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Liabilities:</span>
+                                    <span class="font-semibold text-red-600" id="total-liabilities">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-2">🧮 How it works</h4>
+                            <p class="text-sm text-gray-600 mb-3">Net worth is calculated by subtracting all your liabilities (debts) from all your assets (what you own).</p>
+                            <details class="text-sm">
+                                <summary class="cursor-pointer text-blue-600 font-medium">Formula Used</summary>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <code>Net Worth = Total Assets - Total Liabilities</code><br>
+                                    A positive net worth means you own more than you owe
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="showPage('home')" class="text-blue-600 hover:text-blue-800 font-medium">← Back to All Calculators</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="mb-4">
+                <span class="text-2xl font-bold">💰 Smart Finance Tools</span>
+            </div>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-blue-400">About</a>
+                <a href="#" class="hover:text-blue-400">Disclaimer</a>
+                <a href="#" class="hover:text-blue-400">Contact</a>
+                <a href="#" class="hover:text-blue-400">Credits</a>
+            </div>
+            <p class="text-sm text-gray-400">
+                <strong>Disclaimer:</strong> These tools are for informational purposes only. Please consult a financial advisor for personalized advice.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
+            document.getElementById(pageId + '-page').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showCalculator(calcId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
+            document.getElementById(calcId + '-calculator').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        // Utility Functions
+        function formatCurrency(amount) {
+            return '₹' + amount.toLocaleString('en-IN');
+        }
+
+        function formatPercentage(rate) {
+            return rate.toFixed(2) + '%';
+        }
+
+        // SIP Calculator
+        function calculateSIP() {
+            const P = parseFloat(document.getElementById('sip-amount').value);
+            const R = parseFloat(document.getElementById('sip-rate').value);
+            const Y = parseFloat(document.getElementById('sip-years').value);
+
+            if (!P || !R || !Y) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            const r = (R / 100) / 12;
+            const n = Y * 12;
+            const FV = P * (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+            const totalInvestment = P * n;
+            const totalReturns = FV - totalInvestment;
+
+            document.getElementById('sip-future-value').textContent = formatCurrency(Math.round(FV));
+            document.getElementById('sip-total-investment').textContent = formatCurrency(totalInvestment);
+            document.getElementById('sip-total-returns').textContent = formatCurrency(Math.round(totalReturns));
+            document.getElementById('sip-result').classList.remove('hidden');
+            document.getElementById('sip-result').classList.add('fade-in');
+        }
+
+        // FIRE Calculator
+        function calculateFIRE() {
+            const monthlyExpenses = parseFloat(document.getElementById('fire-expenses').value);
+
+            if (!monthlyExpenses) {
+                alert('Please enter your monthly expenses');
+                return;
+            }
+
+            const annualExpenses = monthlyExpenses * 12;
+            const fireNumber = annualExpenses * 25;
+
+            document.getElementById('fire-number').textContent = formatCurrency(fireNumber);
+            document.getElementById('fire-annual').textContent = formatCurrency(annualExpenses);
+            document.getElementById('fire-result').classList.remove('hidden');
+            document.getElementById('fire-result').classList.add('fade-in');
+        }
+
+        // Loan Interest Calculator
+        function calculateLoan() {
+            const P = parseFloat(document.getElementById('loan-principal').value);
+            const R = parseFloat(document.getElementById('loan-rate').value);
+            const T = parseFloat(document.getElementById('loan-time').value);
+            const type = document.getElementById('loan-type').value;
+
+            if (!P || !R || !T) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            let A;
+            if (type === 'simple') {
+                A = P * (1 + (R / 100) * T);
+            } else {
+                A = P * Math.pow((1 + (R / 100)), T);
+            }
+
+            const interest = A - P;
+
+            document.getElementById('loan-total-amount').textContent = formatCurrency(Math.round(A));
+            document.getElementById('loan-principal-display').textContent = formatCurrency(P);
+            document.getElementById('loan-interest-amount').textContent = formatCurrency(Math.round(interest));
+            document.getElementById('loan-result').classList.remove('hidden');
+            document.getElementById('loan-result').classList.add('fade-in');
+        }
+
+        // EMI Calculator
+        function calculateEMI() {
+            const P = parseFloat(document.getElementById('emi-principal').value);
+            const R = parseFloat(document.getElementById('emi-rate').value);
+            const Y = parseFloat(document.getElementById('emi-years').value);
+
+            if (!P || !R || !Y) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            const r = (R / 100) / 12;
+            const n = Y * 12;
+            const emi = P * r * (Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            const totalAmount = emi * n;
+            const totalInterest = totalAmount - P;
+
+            document.getElementById('emi-amount').textContent = formatCurrency(Math.round(emi));
+            document.getElementById('emi-principal-display').textContent = formatCurrency(P);
+            document.getElementById('emi-total-interest').textContent = formatCurrency(Math.round(totalInterest));
+            document.getElementById('emi-total-amount').textContent = formatCurrency(Math.round(totalAmount));
+            document.getElementById('emi-result').classList.remove('hidden');
+            document.getElementById('emi-result').classList.add('fade-in');
+        }
+
+        // Interest Rate Calculator
+        function calculateRate() {
+            const P = parseFloat(document.getElementById('rate-principal').value);
+            const A = parseFloat(document.getElementById('rate-final').value);
+            const T = parseFloat(document.getElementById('rate-time').value);
+
+            if (!P || !A || !T) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            const rate = (Math.pow(A / P, 1 / T) - 1) * 100;
+            const gain = A - P;
+
+            document.getElementById('rate-percentage').textContent = formatPercentage(rate);
+            document.getElementById('rate-initial-display').textContent = formatCurrency(P);
+            document.getElementById('rate-final-display').textContent = formatCurrency(A);
+            document.getElementById('rate-gain').textContent = formatCurrency(gain);
+            document.getElementById('rate-result').classList.remove('hidden');
+            document.getElementById('rate-result').classList.add('fade-in');
+        }
+
+        // Investment Tenure Calculator
+        function calculateTenure() {
+            const startDate = new Date(document.getElementById('tenure-start').value);
+            const endDate = new Date(document.getElementById('tenure-end').value);
+
+            if (!startDate || !endDate) {
+                alert('Please select both dates');
+                return;
+            }
+
+            if (endDate <= startDate) {
+                alert('End date must be after start date');
+                return;
+            }
+
+            const diffTime = Math.abs(endDate - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const diffMonths = Math.round(diffDays / 30.44);
+            const diffYears = (diffDays / 365.25).toFixed(2);
+
+            document.getElementById('tenure-years').textContent = diffYears + ' Years';
+            document.getElementById('tenure-days').textContent = diffDays;
+            document.getElementById('tenure-months').textContent = diffMonths;
+            document.getElementById('tenure-result').classList.remove('hidden');
+            document.getElementById('tenure-result').classList.add('fade-in');
+        }
+
+        // CAGR Calculator
+        function calculateCAGR() {
+            const beginning = parseFloat(document.getElementById('cagr-beginning').value);
+            const ending = parseFloat(document.getElementById('cagr-ending').value);
+            const years = parseFloat(document.getElementById('cagr-years').value);
+
+            if (!beginning || !ending || !years) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            const cagr = (Math.pow(ending / beginning, 1 / years) - 1) * 100;
+            const totalReturn = ((ending - beginning) / beginning) * 100;
+
+            document.getElementById('cagr-percentage').textContent = formatPercentage(cagr);
+            document.getElementById('cagr-begin-display').textContent = formatCurrency(beginning);
+            document.getElementById('cagr-end-display').textContent = formatCurrency(ending);
+            document.getElementById('cagr-total-return').textContent = formatPercentage(totalReturn);
+            document.getElementById('cagr-result').classList.remove('hidden');
+            document.getElementById('cagr-result').classList.add('fade-in');
+        }
+
+        // Inflation Calculator
+        function calculateInflation() {
+            const present = parseFloat(document.getElementById('inflation-present').value);
+            const rate = parseFloat(document.getElementById('inflation-rate').value);
+            const years = parseFloat(document.getElementById('inflation-years').value);
+
+            if (!present || !rate || !years) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            const future = present * Math.pow((1 + rate / 100), years);
+            const loss = future - present;
+
+            document.getElementById('inflation-future').textContent = formatCurrency(Math.round(future));
+            document.getElementById('inflation-present-display').textContent = formatCurrency(present);
+            document.getElementById('inflation-loss').textContent = formatCurrency(Math.round(loss));
+            document.getElementById('inflation-result').classList.remove('hidden');
+            document.getElementById('inflation-result').classList.add('fade-in');
+        }
+
+        // Retirement Calculator
+        function calculateRetirement() {
+            const annualExpenses = parseFloat(document.getElementById('retirement-expenses').value);
+
+            if (!annualExpenses) {
+                alert('Please enter your annual expenses');
+                return;
+            }
+
+            const corpus = annualExpenses / 0.04;
+
+            document.getElementById('retirement-corpus').textContent = formatCurrency(Math.round(corpus));
+            document.getElementById('retirement-annual-display').textContent = formatCurrency(annualExpenses);
+            document.getElementById('retirement-result').classList.remove('hidden');
+            document.getElementById('retirement-result').classList.add('fade-in');
+        }
+
+        // Net Worth Calculator
+        function calculateNetWorth() {
+            const cash = parseFloat(document.getElementById('cash').value) || 0;
+            const investments = parseFloat(document.getElementById('investments').value) || 0;
+            const realestate = parseFloat(document.getElementById('realestate').value) || 0;
+            const vehicle = parseFloat(document.getElementById('vehicle').value) || 0;
+            const otherAssets = parseFloat(document.getElementById('other-assets').value) || 0;
+
+            const homeLoan = parseFloat(document.getElementById('home-loan').value) || 0;
+            const carLoan = parseFloat(document.getElementById('car-loan').value) || 0;
+            const creditDebt = parseFloat(document.getElementById('credit-debt').value) || 0;
+            const otherLoans = parseFloat(document.getElementById('other-loans').value) || 0;
+
+            const totalAssets = cash + investments + realestate + vehicle + otherAssets;
+            const totalLiabilities = homeLoan + carLoan + creditDebt + otherLoans;
+            const netWorth = totalAssets - totalLiabilities;
+
+            document.getElementById('networth-value').textContent = formatCurrency(netWorth);
+            document.getElementById('total-assets').textContent = formatCurrency(totalAssets);
+            document.getElementById('total-liabilities').textContent = formatCurrency(totalLiabilities);
+            document.getElementById('networth-result').classList.remove('hidden');
+            document.getElementById('networth-result').classList.add('fade-in');
+        }
+
+        // Set default dates for tenure calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const fiveYearsAgo = new Date(today.getFullYear() - 5, today.getMonth(), today.getDate());
+            
+            document.getElementById('tenure-start').value = fiveYearsAgo.toISOString().split('T')[0];
+            document.getElementById('tenure-end').value = today.toISOString().split('T')[0];
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962c3d71c471de58',t:'MTc1MzExNzA3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
